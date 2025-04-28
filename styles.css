@@ -338,3 +338,7 @@ body.light .color >div:hover {
 body.light .title-box, body.light .headbox {
   filter: brightness(150%);
 }
+
+body.light .origin > div, body.light .origin > a {
+  color: #580026;
+}
