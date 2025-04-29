@@ -257,6 +257,9 @@ height: 15px;
 .color {
   column-count: 1;
 }
+.origin {
+  text-align: center;
+}
 }
 
 body.light::-webkit-scrollbar {
