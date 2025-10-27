@@ -58,7 +58,7 @@ h1 {
   margin:25px;
 }
 body {
-  background-color: #580026;
+  background-color: #2f1b22;
   margin: 0;
 }
 .title-box {
@@ -69,22 +69,27 @@ body {
   padding-bottom: 0.5em;
   padding-left:10px;
   padding-right:10px;
+  border-radius: 15px;
+  border: 1px solid #b20561;
 }
 .title-box::before {
   content: "";
   position: absolute;
   top: 0; left: 0; right: 0; bottom: 0;
   background-image: url(colorful.png);
+  border-radius: 15px;
+  opacity: 0.3;
   background-size: cover;
-  border-radius: 25px;
   z-index:-1;
 }
 .headbox {
   position: relative;
   color: white;
-  border-radius: 25px;
+  border-radius: 15px;
   display:flex;
   justify-content: center;
+  border-radius: 15px;
+  border: 1px solid #b20561;
   padding: 1em;
 }
 .headbox::before {
@@ -93,14 +98,15 @@ body {
   top: 0; left: 0; right: 0; bottom: 0;
   background-image: url(colorful.png);
   background-size: cover;
-  border-radius: 25px;
+  border-radius: 15px;
+  opacity: 0.3;
   z-index:-1;
 }
 .headbox > div:not(:nth-child(3n)) {
-  border-right: rgba(255, 255, 255, 0.25) 2.5px solid;
+  border-right: #ffffff40 1px solid;
 }
 .headbox > div {
-  padding: 25px;
+  padding: 0 25px;
 }
 .color {
   column-count: 3;
@@ -112,17 +118,18 @@ body {
 }
 .color > div {
   color: white;
-  border-radius: 25px;
+  border-radius: 15px;
   padding: 25px;
   height: max-content;
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   break-inside: avoid;
   margin-bottom: 25px;
-  background: linear-gradient(to bottom, #b20561, #e90d4e);
+  border: 1px solid #b20561;
+  background: linear-gradient(to bottom, #b2056180, #b2056120);
 }
 .color >div:hover {
   transform: scale(1.01);
-  box-shadow: 0 10px 10px #00000050;
+  box-shadow: 0 0px 10px #b20561;
 }
 .color >div >div {
   position: relative;
@@ -131,12 +138,12 @@ body {
   height: 2.5em;
   margin: -25px;
   margin-bottom: 25px;
-  border-radius: 25px 25px 0 0;
+  border-radius: 15px 15px 0 0;
 }
 
 hr {
-  border: solid 0.5px white;
-  opacity: 25%;
+  border: none;
+  border-bottom: solid 1px #ffffff40;
 }
 
 .origin {
@@ -252,13 +259,13 @@ opacity: 1;
 /* themebtn */
 
 body::-webkit-scrollbar {
-background: rgba(0,0,0, 0.5);
+background: #00000080;
 border-radius: 25px;
 width: 15px;
 height: 15px;
 }
 body::-webkit-scrollbar-thumb {
-background: rgba(255,255,255,0.5);
+background: #b20561;
 border-radius: 25px;
 width: 50%;
 height: 15px;
@@ -296,13 +303,13 @@ body.light::-webkit-scrollbar {
   background: rgba(255,255,255, 0.5);
 }
 body.light::-webkit-scrollbar-thumb {
-  background: #ee147f80;
+  background: #ff6aaa;
 }
 
 body.light .gotop, body.light .themebtn {
   background-color: rgba(255,255,255,0.5);
   border: solid 1px white;
-  box-shadow:0 0 5px #ee147f80;
+  box-shadow:0 0 5px #ff6aaa80;
   transition: background-color 1s ease, box-shadow 1s ease;
 }
 body.light .gotop:hover, body.light .themebtn:hover {
@@ -316,7 +323,7 @@ body.light .uppy, body.light .themeicon {
 body.light .sectionbtn {
   background-color: rgba(255,255,255,0.5);
   border: solid 1px white;
-  box-shadow:0 0 5px #ee147f80;
+  box-shadow:0 0 5px #ff6aaa80;
   transition: background-color 1s ease, color 1s ease, box-shadow 1s ease;
 }
 body.light .sectionbtn:hover {
@@ -359,11 +366,22 @@ body.light .home > a > button:hover {
 }
 
 body.light {
-  background-color: #ffade0 ;
+  background-color: #ffcfed ;
 }
 
 body.light .color >div:hover {
-  box-shadow: 0 10px 10px #ff64be50;
+  box-shadow: 0 0px 10px #ffb3d4;
+}
+
+body.light .title-box, body.light .headbox {
+  border: 1px solid #ff6aaa;
+  color: #580026;
+}
+body.light .title-box:before, body.light .headbox:before{
+  opacity: 0.5;
+}
+body.light .headbox > div:not(:nth-child(3n)) {
+  border-right: #58002640 1px solid;
 }
 
 body.light .origin > div, body.light .origin > a {
@@ -375,9 +393,9 @@ body.light .title-box::before, body.light .headbox::before {
 }
 body.light .color>div {
   color: #580026;
-  background: linear-gradient(to bottom, #ffdbed, #ffedf6);
+  border: 1px solid #ffb3d4;
+  background: linear-gradient(to bottom, #ffffff80, #ffffff40);
 }
 body.light hr{
-  border: solid 0.5px #580026;
-  opacity: 25%;
+  border-bottom: solid 0.5px #58002640;
 }
