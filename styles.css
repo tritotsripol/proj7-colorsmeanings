@@ -13,6 +13,7 @@ h1 {
   justify-content: start;
   align-items: center;
   gap: 2.5em;
+  border-radius: 0 0 25px 25px;
 }
 .home {
   flex-grow: 1;
@@ -25,20 +26,54 @@ h1 {
   transition: font-weight 0.5s ease, font-size 0.5s ease;
 }
 .home > a > button {
+  position: relative;
+  width: 75px !important;
+  height: 75px;
   cursor: pointer;
   color: white;
   background: #00000080;
   border-radius: 15px;
-  border: 1px solid black;
+  border: none;
   width: 5em;
   font-size: 20px;
   font-family: Kanit;
-  transition: background 1s ease, box-shadow 1s ease;
-  box-shadow: 0 0 5px rgba(0, 0, 0, 0.5);
+  transition: background 0.5s ease, box-shadow 0.5s ease;
 }
 .home > a > button:hover {
   background: black;
-  box-shadow: 0 0 5px rgba(0,0,0, 1);
+}
+.home > a > button > img {
+  opacity: 50%;
+  transition: opacity 0.5s ease;
+}
+.home > a > button:hover > img {
+  opacity: 100%;
+}
+.home > a > button > div {
+  opacity: 0.5;
+  position: absolute;
+  top: 15%;
+  left: 15%;
+  width: 50px;
+  height: 50px;
+  mask-image: url('home-icon.png');
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  background-color: white;
+  transition: opacity 0.5s ease; 
+}
+.home > a > button:hover > div {
+  opacity: 1;
+}
+.semiicon {
+  width: 75px;
+  height: 75px;
+  mask-image: url('semi-icon.png');
+  mask-repeat: no-repeat;
+  mask-size: contain;
+  mask-position: center;
+  background-color: white;
 }
 .footer {
   background: #00000080;
@@ -53,16 +88,20 @@ h1 {
   box-sizing: border-box;
   margin-top:auto;
   z-index: -1;
+  border-radius: 25px 25px 0 0;
 }
 .web {
   margin:25px;
 }
 body {
-  background-color: #2f1b22;
+  background: radial-gradient(circle at center, #b20561 0%, transparent 75%),#5a002e;
+  background-repeat: repeat;
+  background-size: cover;
+  height: 100vh;
   margin: 0;
 }
 .title-box {
-  position: relative;
+  background: #b20561b0;
   text-align: center;
   color: white;
   padding-top: 0.5em;
@@ -70,43 +109,22 @@ body {
   padding-left:10px;
   padding-right:10px;
   border-radius: 15px;
-  border: 1px solid #b20561;
-}
-.title-box::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url(colorful.png);
-  border-radius: 15px;
-  opacity: 0.3;
-  background-size: cover;
-  z-index:-1;
 }
 .headbox {
+  background: #b20561b0;
   position: relative;
   color: white;
   border-radius: 15px;
   display:flex;
   justify-content: center;
   border-radius: 15px;
-  border: 1px solid #b20561;
   padding: 1em;
-}
-.headbox::before {
-  content: "";
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background-image: url(colorful.png);
-  background-size: cover;
-  border-radius: 15px;
-  opacity: 0.3;
-  z-index:-1;
 }
 .headbox > div:not(:nth-child(3n)) {
   border-right: #ffffff40 1px solid;
 }
 .headbox > div {
-  padding: 0 25px;
+  padding: 25px;
 }
 .color {
   column-count: 3;
@@ -124,12 +142,11 @@ body {
   transition: transform 0.5s ease, box-shadow 0.5s ease;
   break-inside: avoid;
   margin-bottom: 25px;
-  border: 1px solid #b20561;
-  background: linear-gradient(to bottom, #b2056180, #b2056120);
+  background: #b20561b0;
 }
 .color >div:hover {
-  transform: scale(1.01);
-  box-shadow: 0 0px 10px #b20561;
+  transform: scale(1.05);
+  box-shadow: 0 5px 5px #00000080;
 }
 .color >div >div {
   position: relative;
@@ -150,117 +167,112 @@ hr {
   text-align: end;
   word-wrap: break-word;
 }
-.origin > div, .origin > a {
+.origin > div {
   color: white;
-  text-decoration: none;
-  font-weight: 200;
 }
-
+.origin > a {
+  font-weight: 200;
+  text-decoration: none;
+  color: white;
+}
 /* buttons */
 .buttons {
-display: flex;
-flex-wrap: nowrap;
-gap: 5px;
-position: fixed;
-inset: auto 15px 15px auto;
+  display: flex;
+  flex-wrap: nowrap;
+  position: fixed;
+  gap: 0px;
+  inset: auto 15px 15px auto;
 }
 /* buttons */
 
 /* gotop button */
 .gotop {
-width: 5em;
-height: 3em;
-background-color: rgba(0,0,0,0.5);
-backdrop-filter: blur(5px);
-border-top-right-radius: 25px;
-border-bottom-right-radius: 25px;
-border: solid 1px black;
-box-shadow:0 0 5px #ee147f80;
-transition: background-color 1s ease, box-shadow 1s ease;
+  width: 5em;
+  height: 3em;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  border-top-right-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border: none;
+  transition: background-color 0.5s ease, box-shadow 0.5s ease;
 }
 .gotop:hover {
-background-color: black;
-box-shadow: 0 0 5px rgba(0,0,0, 1);
+  background-color: black;
 }
 .uppy {
-filter: invert(1);
-opacity: 0.5;
+  filter: invert(1);
+  opacity: 0.5;
 }
 .gotop:hover .uppy {
-transition: opacity 1s ease;  
-opacity: 1;
+  transition: opacity 0.5s ease;  
+  opacity: 1;
 }
 /* gotop button */
 
 /* sectionbtn */
 .sectionbtn {
-width: 5em ;
-height: 3em ;
-background-color: rgba(0,0,0,0.5);
-backdrop-filter: blur(5px);
-border-top-left-radius: 25px;
-border-bottom-left-radius: 25px;
-border: solid 1px black;
-box-shadow:0 0 5px #ee147f80;
-transition: background-color 1s ease, color 1s ease, box-shadow 1s ease;
+  width: 5em ;
+  height: 3em ;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  border-top-left-radius: 15px;
+  border-bottom-left-radius: 15px;
+  border: none;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 .sectionbtn:hover {
-background-color: black;
-box-shadow: 0 0 5px rgba(0,0,0,1);
+  background-color: black;
 }
 .sectionbtn:focus {
-outline: none;
+  outline: none;
 }
 select.sectionbtn {
-color: rgba(255,255,255,0.5);
-font-family: 'Kanit', sans-serif;
-appearance: none;
-text-align: center;
-font-weight: bold;
+  color: rgba(255,255,255,0.5);
+  font-family: 'Kanit', sans-serif;
+  appearance: none;
+  text-align: center;
+  font-weight: bold;
 }
 select.sectionbtn:hover {
-color: white;
+  color: white;
 }
 select.sectionbtn div {
-color: white;
-font-family: 'Kanit', sans-serif;
-appearance: none;
-text-align: center;
+  color: white;
+  font-family: 'Kanit', sans-serif;
+  appearance: none;
+  text-align: center;
 }
 select.sectionbtn option {
-color: white;
-font-family: 'Kanit', sans-serif;
-background-color:#1f1f1f;
+  color: white;
+  font-family: 'Kanit', sans-serif;
+  background-color:black;
 }
 /* sectionbtn */
 
 /* themebtn */
 .themebtn {
-width: 5em ;
-height: 3em ;
-background-color: rgba(0,0,0,0.5);
-backdrop-filter: blur(5px);
-border: solid 1px black;
-box-shadow:0 0 5px #ee147f80;
-transition: background-color 1s ease, color 1s ease, box-shadow 1s ease;
+  width: 5em ;
+  height: 3em ;
+  background-color: rgba(0,0,0,0.5);
+  backdrop-filter: blur(5px);
+  border: none;
+  transition: background-color 0.5s ease, color 0.5s ease;
 }
 .themebtn:hover {
-background-color: black;
-box-shadow: 0 0 5px rgba(0,0,0,1);
+  background-color: black;
 }
 .themeicon {
-filter: invert(1);
-opacity: 0.5;
+  filter: invert(1);
+  opacity: 0.5;
 }
 .themebtn:hover .themeicon {
-transition: opacity 1s ease;  
-opacity: 1;
+  transition: opacity 0.5s ease;  
+  opacity: 1;
 }
 /* themebtn */
 
 body::-webkit-scrollbar {
-background: #00000080;
-border-radius: 25px;
+background: #5a002e;
 width: 15px;
 height: 15px;
 }
@@ -288,8 +300,12 @@ height: 15px;
   flex-direction: column;
 }
 .headbox > div:not(:nth-child(3n)) {
-  border-bottom: white 1px solid;
+  border-bottom: #ffffff40 1px solid;
   border-right: none;
+}
+body.light .headbox > div:not(:nth-child(3n)) {
+  border-right: none !important;
+  border-bottom: #58002640 1px solid;
 }
 .color {
   column-count: 1;
@@ -300,17 +316,14 @@ height: 15px;
 }
 
 body.light::-webkit-scrollbar {
-  background: rgba(255,255,255, 0.5);
+  background: #ffc9f0;
 }
 body.light::-webkit-scrollbar-thumb {
-  background: #ff6aaa;
+  background: #580026;
 }
 
 body.light .gotop, body.light .themebtn {
   background-color: rgba(255,255,255,0.5);
-  border: solid 1px white;
-  box-shadow:0 0 5px #ff6aaa80;
-  transition: background-color 1s ease, box-shadow 1s ease;
 }
 body.light .gotop:hover, body.light .themebtn:hover {
   background-color: white;
@@ -322,9 +335,6 @@ body.light .uppy, body.light .themeicon {
 }
 body.light .sectionbtn {
   background-color: rgba(255,255,255,0.5);
-  border: solid 1px white;
-  box-shadow:0 0 5px #ff6aaa80;
-  transition: background-color 1s ease, color 1s ease, box-shadow 1s ease;
 }
 body.light .sectionbtn:hover {
   background-color: white;
@@ -346,35 +356,37 @@ body.light select.sectionbtn option {
 
 body.light .header, body.light .footer {
   background: #ffffff80;
-  color: #13364e;
+  color: #580026;
 }
 body.light .home>a {
-  color: #13364e;
+  color: #580026;
+}
+body.light .home > a > button > div, body.light .semiicon {
+  background-color: #580026;
 }
 body.light .home > a{
-  color: #13364e;
+  color: #580026;
 }
 body.light .home > a > button {
-  color: #13364e;
+  color: #580026;
   background: #ffffff80;
-  border: 1px solid white;
-  box-shadow: 0 0 5px rgba(255, 255, 255, 0.5);
 }
 body.light .home > a > button:hover {
   background: white;
-  box-shadow: 0 0 5px rgba(255,255,255, 1);
-}
-
-body.light {
-  background-color: #ffcfed ;
-}
-
-body.light .color >div:hover {
-  box-shadow: 0 0px 10px #ffb3d4;
 }
 
 body.light .title-box, body.light .headbox {
-  border: 1px solid #ff6aaa;
+  background: #fef1fab0;
+}
+body.light {
+  background: radial-gradient(#ffe4f6 0%, transparent 75%),#ffc9f0;
+}
+
+body.light .color >div:hover {
+  box-shadow: 0 5px 5px #ff9de280;
+}
+
+body.light .title-box, body.light .headbox, body.light .origin > b > div {
   color: #580026;
 }
 body.light .title-box:before, body.light .headbox:before{
@@ -383,18 +395,12 @@ body.light .title-box:before, body.light .headbox:before{
 body.light .headbox > div:not(:nth-child(3n)) {
   border-right: #58002640 1px solid;
 }
-
 body.light .origin > div, body.light .origin > a {
   color: #580026;
 }
-
-body.light .title-box::before, body.light .headbox::before {
-  filter: brightness(1.25);
-}
 body.light .color>div {
   color: #580026;
-  border: 1px solid #ffb3d4;
-  background: linear-gradient(to bottom, #ffffff80, #ffffff40);
+  background: #fef1fab0;
 }
 body.light hr{
   border-bottom: solid 0.5px #58002640;
